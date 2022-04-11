@@ -1,0 +1,584 @@
+sam@SamLinux:~/public_html/web3/todo$ npm i 
+npm WARN deprecated source-map-url@0.4.1: See https://github.com/lydell/source-map-url#deprecated
+npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated
+npm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated
+npm WARN deprecated source-map-resolve@0.5.3: See https://github.com/lydell/source-map-resolve#deprecated
+npm WARN deprecated chokidar@2.1.8: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
+npm WARN deprecated truffle-error@0.0.3: WARNING: This package has been renamed to @truffle/error.
+npm WARN deprecated truffle-blockchain-utils@0.0.5: WARNING: This package has been renamed to @truffle/blockchain-utils.
+npm WARN deprecated truffle-contract-schema@2.0.3: WARNING: This package has been renamed to @truffle/contract-schema.
+npm WARN deprecated mkdirp@0.5.1: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)
+npm WARN deprecated truffle-contract@3.0.6: WARNING: This package has been renamed to @truffle/contract.
+npm WARN deprecated popper.js@1.16.1: You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1
+
+added 517 packages, and audited 518 packages in 40s
+
+9 packages are looking for funding
+  run `npm fund` for details
+
+16 vulnerabilities (1 low, 7 moderate, 5 high, 3 critical)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+sam@SamLinux:~/public_html/web3/todo$ truffle compile
+Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/truffle/node_modules/.cache'
+    at Object.mkdirSync (node:fs:1350:3)
+    at make (/usr/lib/node_modules/truffle/build/webpack:/~/make-dir/index.js:61:1)
+    at make (/usr/lib/node_modules/truffle/build/webpack:/~/make-dir/index.js:68:1)
+    at Function.module.exports.sync (/usr/lib/node_modules/truffle/build/webpack:/~/make-dir/index.js:84:1)
+    at module.exports (/usr/lib/node_modules/truffle/build/webpack:/~/find-cache-dir/index.js:23:1)
+    at Object.<anonymous> (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-compile/compilerSupplier.js:33:1)
+    at __webpack_require__ (/usr/lib/node_modules/truffle/build/webpack:/webpack/bootstrap 07e85fa5d55682c1e7c6:19:1)
+    at Object.<anonymous> (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-compile/profiler.js:8:24)
+    at __webpack_require__ (/usr/lib/node_modules/truffle/build/webpack:/webpack/bootstrap 07e85fa5d55682c1e7c6:19:1)
+    at Object.<anonymous> (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-compile/index.js:3:16)
+    at __webpack_require__ (/usr/lib/node_modules/truffle/build/webpack:/webpack/bootstrap 07e85fa5d55682c1e7c6:19:1)
+    at Object.<anonymous> (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-workflow-compile/index.js:7:19)
+    at __webpack_require__ (/usr/lib/node_modules/truffle/build/webpack:/webpack/bootstrap 07e85fa5d55682c1e7c6:19:1)
+    at Object.run (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/commands/compile.js:43:21)
+    at Command.run (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/command.js:113:1)
+    at Object.<anonymous> (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/cli.js:47:1)
+    at __webpack_require__ (/usr/lib/node_modules/truffle/build/webpack:/webpack/bootstrap 07e85fa5d55682c1e7c6:19:1)
+    at /usr/lib/node_modules/truffle/build/webpack:/webpack/bootstrap 07e85fa5d55682c1e7c6:65:1
+    at Object.<anonymous> (/usr/lib/node_modules/truffle/build/cli.bundled.js:71:10)
+    at Module._compile (node:internal/modules/cjs/loader:1099:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:975:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)
+    at node:internal/main/run_main_module:17:47
+Truffle v5.0.2 (core: 5.0.2)
+Node v17.9.0
+sam@SamLinux:~/public_html/web3/todo$ sudo truffle compile
+[sudo] password for sam: 
+Sorry, try again.
+[sudo] password for sam: 
+Compiling ./contracts/Migrations.sol...
+Compiling ./contracts/TodoList.sol...
+Writing artifacts to ./build/contracts
+
+sam@SamLinux:~/public_html/web3/todo$ truffle migrate
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 6721975
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+Error:  *** Deployment Failed ***
+
+"Migrations" could not deploy due to insufficient funds
+   * Account:  0x86dE71Fa29e9e4d32bE00c33535D3960Af60fc0e
+   * Balance:  0 wei
+   * Message:  Returned error: sender doesn't have enough funds to send tx. The upfront cost is: 134439500000000000 and the sender's account only has: 0
+   * Try:
+      + Using an adequately funded account
+      + If you are using a local Geth node, verify that your node is synced.
+
+    at /usr/lib/node_modules/truffle/build/webpack:/packages/truffle-deployer/src/deployment.js:364:1
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at Migration._deploy (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-migrate/migration.js:83:1)
+    at /usr/lib/node_modules/truffle/build/webpack:/packages/truffle-migrate/migration.js:60:1
+Truffle v5.0.2 (core: 5.0.2)
+Node v17.9.0
+sam@SamLinux:~/public_html/web3/todo$ truffle migrate
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 6721975
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x41a84140407523b900f281de7f64521e30ed8a9583b32371cc20fc07f3245ddd
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x19C1EB2A5C35Ba114d8778912c2bb3FeeF8fa966
+   > account:             0x13c2326c90e802153F65bEBc861CB35a0318A6E9
+   > balance:             99.99586798
+   > gas used:            206601
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00413202 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00413202 ETH
+
+Error: EACCES: permission denied, open '/home/sam/public_html/web3/todo/build/contracts/Migrations.json'
+Truffle v5.0.2 (core: 5.0.2)
+Node v17.9.0
+sam@SamLinux:~/public_html/web3/todo$ truffle console
+truffle(development)> todoList = await TodoList.deployed()
+Uncaught:
+Error: TodoList has not been deployed to detected network (network/artifact mismatch)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at /usr/lib/node_modules/truffle/build/webpack:/packages/truffle-contract/lib/contract/constructorMethods.js:113:1
+truffle(development)> 
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+truffle(development)> exit
+evalmachine.<anonymous>:0
+exit
+^
+
+Uncaught ReferenceError: exit is not defined
+    at evalmachine.<anonymous>
+    at Script.runInContext (node:vm:139:12)
+    at runScript (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/console.js:199:1)
+    at Console.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/console.js:213:1)
+    at ReplManager.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/repl.js:118:1)
+    at bound (node:domain:421:15)
+    at REPLServer.runBound [as eval] (node:domain:432:12)
+    at REPLServer.onLine (node:repl:893:10)
+    at REPLServer.emit (node:events:527:28)
+    at REPLServer.emit (node:domain:475:12)
+truffle(development)> exit()
+evalmachine.<anonymous>:0
+exit()
+^
+
+Uncaught ReferenceError: exit is not defined
+    at evalmachine.<anonymous>
+    at Script.runInContext (node:vm:139:12)
+    at runScript (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/console.js:199:1)
+    at Console.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/console.js:213:1)
+    at ReplManager.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/repl.js:118:1)
+    at bound (node:domain:421:15)
+    at REPLServer.runBound [as eval] (node:domain:432:12)
+    at REPLServer.onLine (node:repl:893:10)
+    at REPLServer.emit (node:events:527:28)
+    at REPLServer.emit (node:domain:475:12)
+truffle(development)> quit()
+evalmachine.<anonymous>:0
+quit()
+^
+
+Uncaught ReferenceError: quit is not defined
+    at evalmachine.<anonymous>
+    at Script.runInContext (node:vm:139:12)
+    at runScript (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/console.js:199:1)
+    at Console.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/console.js:213:1)
+    at ReplManager.interpret (/usr/lib/node_modules/truffle/build/webpack:/packages/truffle-core/lib/repl.js:118:1)
+    at bound (node:domain:421:15)
+    at REPLServer.runBound [as eval] (node:domain:432:12)
+    at REPLServer.onLine (node:repl:893:10)
+    at REPLServer.emit (node:events:527:28)
+    at REPLServer.emit (node:domain:475:12)
+truffle(development)> 
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+truffle(development)> 
+sam@SamLinux:~/public_html/web3/todo$ truffle deploy
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 6721975
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0xfd93c3da4a3dd73d4168806e3644df2e3974ee83356013c460c0ff3ccb7ce671
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x0222F84f5F844f49b598B7d60F552Ee845160EFe
+   > account:             0x13c2326c90e802153F65bEBc861CB35a0318A6E9
+   > balance:             99.99173596
+   > gas used:            206601
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00413202 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00413202 ETH
+
+Error: EACCES: permission denied, open '/home/sam/public_html/web3/todo/build/contracts/Migrations.json'
+Truffle v5.0.2 (core: 5.0.2)
+Node v17.9.0
+sam@SamLinux:~/public_html/web3/todo$ sudo truffle deploy
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 6721975
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x10373ba9466c7d3aecd634b066a725682ef8de14690c486eab767f12bd36d3c7
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x2F12ccf0dE960dA3d403066F14b088369A10518a
+   > account:             0x13c2326c90e802153F65bEBc861CB35a0318A6E9
+   > balance:             99.98760394
+   > gas used:            206601
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00413202 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00413202 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'TodoList'
+   --------------------
+   > transaction hash:    0x551b2dff46c9c93210f0a23af7e9c769d9fa15ecce3f2b0e8f23597c04bd39a6
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xD43A5F71517106e3E94873dE7508b27948c00E67
+   > account:             0x13c2326c90e802153F65bEBc861CB35a0318A6E9
+   > balance:             99.98584188
+   > gas used:            88103
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00176206 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00176206 ETH
+
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.00589408 ETH
+
+sam@SamLinux:~/public_html/web3/todo$ truffle migrate
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 6721975
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x6fe9ebd36228cf127314a7b8882199249937a6eb6366b8ec061d1078d1a8977f
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x17ED7b329A9F9d8e625B6DCA842498AA190eb1bf
+   > account:             0x13c2326c90e802153F65bEBc861CB35a0318A6E9
+   > balance:             99.98170986
+   > gas used:            206601
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00413202 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00413202 ETH
+
+Error: EACCES: permission denied, open '/home/sam/public_html/web3/todo/build/contracts/Migrations.json'
+Truffle v5.0.2 (core: 5.0.2)
+Node v17.9.0
+sam@SamLinux:~/public_html/web3/todo$ sudo truffle migrate
+⚠️  Important ⚠️
+If you're using an HDWalletProvider, it must be Web3 1.0 enabled or your migration will hang.
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 6721975
+
+
+1_initial_migration.js
+======================
+
+   Deploying 'Migrations'
+   ----------------------
+   > transaction hash:    0x08fdce4b854cf5d6b76c7113bd443e92d6b8a3dbd38dac794f3ae468dab2389b
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x5478e5F364e789E0B622A3570E057a41ae81e371
+   > account:             0x13c2326c90e802153F65bEBc861CB35a0318A6E9
+   > balance:             99.97757784
+   > gas used:            206601
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00413202 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00413202 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Replacing 'TodoList'
+   --------------------
+   > transaction hash:    0x1ca6891f09b800b66d68ab9036007d0903b42db78e34769a70343cc1ea7a1619
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x12D46c5609FC0ca97157D001e6561d39E495805b
+   > account:             0x13c2326c90e802153F65bEBc861CB35a0318A6E9
+   > balance:             99.97581578
+   > gas used:            88103
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00176206 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00176206 ETH
+
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.00589408 ETH
+
+sam@SamLinux:~/public_html/web3/todo$ trffle console
+trffle: command not found
+sam@SamLinux:~/public_html/web3/todo$ truffle console
+truffle(development)> todoList=await TodoList.deployed()
+undefined
+truffle(development)> todoList
+TruffleContract {
+  constructor: [Function: TruffleContract] {
+    _constructorMethods: {
+      setProvider: [Function: setProvider],
+      new: [Function: new],
+      at: [Function: at],
+      deployed: [Function: deployed],
+      defaults: [Function: defaults],
+      hasNetwork: [Function: hasNetwork],
+      isDeployed: [Function: isDeployed],
+      detectNetwork: [Function: detectNetwork],
+      setNetwork: [Function: setNetwork],
+      setWallet: [Function: setWallet],
+      resetAddress: [Function: resetAddress],
+      link: [Function: link],
+      clone: [Function: clone],
+      addProp: [Function: addProp],
+      toJSON: [Function: toJSON],
+      decodeLogs: [Function: decodeLogs]
+    },
+    _properties: {
+      contract_name: [Object],
+      contractName: [Object],
+      gasMultiplier: [Object],
+      timeoutBlocks: [Object],
+      autoGas: [Object],
+      numberFormat: [Object],
+      abi: [Object],
+      network: [Function: network],
+      networks: [Function: networks],
+      address: [Object],
+      transactionHash: [Object],
+      links: [Function: links],
+      events: [Function: events],
+      binary: [Function: binary],
+      deployedBinary: [Function: deployedBinary],
+      unlinked_binary: [Object],
+      bytecode: [Object],
+      deployedBytecode: [Object],
+      sourceMap: [Object],
+      deployedSourceMap: [Object],
+      source: [Object],
+      sourcePath: [Object],
+      legacyAST: [Object],
+      ast: [Object],
+      compiler: [Object],
+      schema_version: [Function: schema_version],
+      schemaVersion: [Function: schemaVersion],
+      updated_at: [Function: updated_at],
+      updatedAt: [Function: updatedAt],
+      userdoc: [Function: userdoc],
+      devdoc: [Function: devdoc]
+    },
+    _property_values: {},
+    _json: {
+      contractName: 'TodoList',
+      abi: [Array],
+      bytecode: '0x608060405260008055348015601357600080fd5b50609e806100226000396000f3fe608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063b6cb58a5146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b6000548156fea165627a7a7230582043680be4d7e324932358080824c9e497ae202dd28f64e71d566cfd61d7804fed0029',
+      deployedBytecode: '0x608060405260043610603f576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063b6cb58a5146044575b600080fd5b348015604f57600080fd5b506056606c565b6040518082815260200191505060405180910390f35b6000548156fea165627a7a7230582043680be4d7e324932358080824c9e497ae202dd28f64e71d566cfd61d7804fed0029',
+      sourceMap: '25:49:1:-;;;70:1;48:23;;25:49;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:49:1;;;;;;;',
+      deployedSourceMap: '25:49:1:-;;;;;;;;;;;;;;;;;;;;;;;;48:23;;8:9:-1;5:2;;;30:1;27;20:12;5:2;48:23:1;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o',
+      source: 'pragma solidity ^0.5.0;\n' +
+        '\n' +
+        'contract TodoList{\n' +
+        '    uint public taskCount=0;\n' +
+        '}',
+      sourcePath: '/home/sam/public_html/web3/todo/contracts/TodoList.sol',
+      ast: [Object],
+      legacyAST: [Object],
+      compiler: [Object],
+      networks: [Object],
+      schemaVersion: '3.0.1',
+      updatedAt: '2022-04-11T09:42:42.133Z',
+      devdoc: [Object],
+      userdoc: [Object]
+    },
+    setProvider: [Function: bound setProvider],
+    new: [Function: bound new] {
+      estimateGas: [Function: bound estimateDeployment]
+    },
+    at: [Function: bound at],
+    deployed: [Function: bound deployed],
+    defaults: [Function: bound defaults],
+    hasNetwork: [Function: bound hasNetwork],
+    isDeployed: [Function: bound isDeployed],
+    detectNetwork: [Function: bound detectNetwork],
+    setNetwork: [Function: bound setNetwork],
+    setWallet: [Function: bound setWallet],
+    resetAddress: [Function: bound resetAddress],
+    link: [Function: bound link],
+    clone: [Function: bound clone],
+    addProp: [Function: bound addProp],
+    toJSON: [Function: bound toJSON],
+    decodeLogs: [Function: bound decodeLogs],
+    web3: Web3 {
+      currentProvider: [Getter/Setter],
+      _requestManager: [RequestManager],
+      givenProvider: null,
+      providers: [Object],
+      _provider: [HttpProvider],
+      setProvider: [Function (anonymous)],
+      BatchRequest: [Function: bound Batch],
+      extend: [Function],
+      version: '1.0.0-beta.37',
+      utils: [Object],
+      eth: [Eth],
+      shh: [Shh],
+      bzz: [Bzz]
+    },
+    class_defaults: {
+      from: '0x13c2326c90e802153F65bEBc861CB35a0318A6E9',
+      gas: 6721975,
+      gasPrice: 20000000000
+    },
+    currentProvider: HttpProvider {
+      host: 'http://127.0.0.1:7545',
+      httpAgent: [Agent],
+      timeout: 0,
+      headers: undefined,
+      connected: true,
+      send: [Function (anonymous)],
+      _alreadyWrapped: true
+    },
+    network_id: '5777'
+  },
+  methods: {
+    'taskCount()': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    }
+  },
+  abi: [
+    {
+      constant: true,
+      inputs: [],
+      name: 'taskCount',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'view',
+      type: 'function',
+      signature: '0xb6cb58a5'
+    }
+  ],
+  address: '0x12D46c5609FC0ca97157D001e6561d39E495805b',
+  transactionHash: undefined,
+  contract: Contract {
+    currentProvider: [Getter/Setter],
+    _requestManager: RequestManager {
+      provider: [HttpProvider],
+      providers: [Object],
+      subscriptions: {}
+    },
+    givenProvider: null,
+    providers: {
+      WebsocketProvider: [Function: WebsocketProvider],
+      HttpProvider: [Function: HttpProvider],
+      IpcProvider: [Function: IpcProvider]
+    },
+    _provider: HttpProvider {
+      host: 'http://127.0.0.1:7545',
+      httpAgent: [Agent],
+      timeout: 0,
+      headers: undefined,
+      connected: true,
+      send: [Function (anonymous)],
+      _alreadyWrapped: true
+    },
+    setProvider: [Function (anonymous)],
+    BatchRequest: [Function: bound Batch],
+    extend: [Function: ex] {
+      formatters: [Object],
+      utils: [Object],
+      Method: [Function: Method]
+    },
+    clearSubscriptions: [Function (anonymous)],
+    options: { address: [Getter/Setter], jsonInterface: [Getter/Setter] },
+    defaultAccount: [Getter/Setter],
+    defaultBlock: [Getter/Setter],
+    methods: {
+      taskCount: [Function: bound _createTxObject],
+      '0xb6cb58a5': [Function: bound _createTxObject],
+      'taskCount()': [Function: bound _createTxObject]
+    },
+    events: { allEvents: [Function: bound ] },
+    _address: '0x12D46c5609FC0ca97157D001e6561d39E495805b',
+    _jsonInterface: [ [Object] ]
+  },
+  taskCount: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  sendTransaction: [Function (anonymous)],
+  send: [Function (anonymous)],
+  allEvents: [Function (anonymous)],
+  getPastEvents: [Function (anonymous)]
+}
+truffle(development)> todoList.address
+'0x12D46c5609FC0ca97157D001e6561d39E495805b'
+truffle(development)> todoList.taskCount()
+BN { negative: 0, words: [ 0, <1 empty item> ], length: 1, red: null }
+truffle(development)> taskCount=await todoList.taskCount()
+undefined
+truffle(development)> taskCount.toNumber()
+0
+truffle(development)> 
